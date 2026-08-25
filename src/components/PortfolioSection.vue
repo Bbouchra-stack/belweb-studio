@@ -6,10 +6,16 @@
  * réalisation livrée — un portfolio inventé se retourne toujours contre son
  * auteur, et la loi 31-08 sanctionne la publicité trompeuse.
  */
+// Les images du dossier public/ ne sont pas réécrites par Vite quand elles
+// sont référencées en JS (contrairement aux <img> statiques du HTML) : sans
+// ce préfixe, elles pointent toujours vers la racine du domaine et cassent
+// dès que le site est publié sous un sous-chemin (ex. /belweb-studio/).
+const base = import.meta.env.BASE_URL
+
 const projets = [
   {
     id: 1,
-    image: '/portfolio/projet-1.svg',
+    image: `${base}portfolio/projet-1.svg`,
     alt: "Aperçu du concept de site pour un cabinet dentaire",
     categorie: 'Cabinet médical',
     statut: 'Concept',
@@ -19,7 +25,7 @@ const projets = [
   },
   {
     id: 2,
-    image: '/portfolio/projet-3.svg',
+    image: `${base}portfolio/projet-3.svg`,
     alt: "Aperçu du site d'un restaurant méditerranéen à Casablanca",
     categorie: 'Restauration',
     statut: 'En cours',
@@ -29,7 +35,7 @@ const projets = [
   },
   {
     id: 3,
-    image: '/portfolio/projet-4.svg',
+    image: `${base}portfolio/projet-4.svg`,
     alt: "Aperçu du site en cours de création pour Vision Line Auto, garage automobile à Casablanca",
     categorie: 'Automobile',
     statut: 'En cours',
