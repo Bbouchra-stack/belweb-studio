@@ -1,10 +1,11 @@
 <script setup>
 /**
- * Statuts affichés sur chaque carte. Le studio démarre : un projet est un
- * concept de démonstration, deux sont des chantiers réels en cours.
- * Le statut est visible sur la vignette pour ne jamais laisser croire à une
- * réalisation livrée — un portfolio inventé se retourne toujours contre son
- * auteur, et la loi 31-08 sanctionne la publicité trompeuse.
+ * Statuts affichés sur chaque carte : « Réalisé » pour un site livré et en
+ * ligne, « Concept » pour une démonstration non commandée par un client.
+ * Le statut reste visible sur la vignette pour ne jamais laisser croire à
+ * une réalisation livrée quand ce n'est pas le cas — un portfolio inventé
+ * se retourne toujours contre son auteur, et la loi 31-08 sanctionne la
+ * publicité trompeuse.
  */
 // Les images du dossier public/ ne sont pas réécrites par Vite quand elles
 // sont référencées en JS (contrairement aux <img> statiques du HTML) : sans
@@ -12,9 +13,25 @@
 // dès que le site est publié sous un sous-chemin (ex. /belweb-studio/).
 const base = import.meta.env.BASE_URL
 
+const classesStatut = {
+  Concept: 'concept',
+  Réalisé: 'realise',
+  'En cours': 'cours',
+}
+
 const projets = [
   {
     id: 1,
+    image: `${base}portfolio/projet-4.svg`,
+    alt: 'Aperçu du site de Vision Line Auto, garage automobile à Casablanca',
+    categorie: 'Automobile',
+    statut: 'Réalisé',
+    titre: 'Vision Line Auto',
+    description:
+      "Présentation des prestations d'entretien et de réparation, galerie des interventions et prise de rendez-vous en ligne.",
+  },
+  {
+    id: 2,
     image: `${base}portfolio/projet-1.svg`,
     alt: "Aperçu du concept de site pour un cabinet dentaire",
     categorie: 'Cabinet médical',
@@ -24,24 +41,15 @@ const projets = [
       "Présentation de l'équipe et des spécialités, horaires, plan d'accès et prise de rendez-vous en ligne : le patient trouve tout avant même d'appeler.",
   },
   {
-    id: 2,
-    image: `${base}portfolio/projet-3.svg`,
-    alt: "Aperçu du site d'un restaurant méditerranéen à Casablanca",
-    categorie: 'Restauration',
-    statut: 'En cours',
-    titre: 'Table méditerranéenne · Casablanca',
-    description:
-      "Carte du jour actualisable en autonomie, horaires, plan d'accès et réservations. Projet en cours de création — le site sera mis en ligne prochainement.",
-  },
-  {
     id: 3,
-    image: `${base}portfolio/projet-4.svg`,
-    alt: "Aperçu du site en cours de création pour Vision Line Auto, garage automobile à Casablanca",
-    categorie: 'Automobile',
-    statut: 'En cours',
-    titre: 'Vision Line Auto',
+    image: `${base}portfolio/integra-academy.jpg`,
+    alt: 'Aperçu du site INTEGRA Academy, à Tanger',
+    categorie: 'Formation',
+    statut: 'Réalisé',
+    titre: 'INTEGRA Academy',
     description:
-      "Présentation des prestations d'entretien et de réparation, galerie des interventions et prise de rendez-vous en ligne. Projet en cours de création — le site sera mis en ligne prochainement.",
+      'Présentation de la formatrice, du programme et de la méthode, avec un espace actualités et un formulaire de contact.',
+    lien: 'https://bbouchra-stack.github.io/mon-site-web/',
   },
 ]
 </script>
@@ -53,9 +61,8 @@ const projets = [
         <span class="eyebrow" v-reveal>Portfolio</span>
         <h2 class="section__title" v-reveal="60">Un aperçu de ce que nous créons</h2>
         <p class="section__subtitle" v-reveal="120">
-          Le studio démarre : voici un concept de démonstration et deux
-          chantiers en cours. Nos premières réalisations livrées seront
-          publiées ici.
+          Deux réalisations déjà livrées — INTEGRA Academy et Vision Line
+          Auto — aux côtés d'un concept de démonstration.
         </p>
       </div>
 
@@ -71,7 +78,7 @@ const projets = [
             <span class="projet__categorie">{{ projet.categorie }}</span>
             <span
               class="projet__statut"
-              :class="`projet__statut--${projet.statut === 'En cours' ? 'cours' : 'concept'}`"
+              :class="`projet__statut--${classesStatut[projet.statut]}`"
             >
               {{ projet.statut }}
             </span>
@@ -79,6 +86,10 @@ const projets = [
           <div class="projet__corps">
             <h3 class="projet__titre">{{ projet.titre }}</h3>
             <p class="projet__description">{{ projet.description }}</p>
+            <a v-if="projet.lien" :href="projet.lien" target="_blank" rel="noopener" class="projet__lien">
+              Voir le site
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </li>
       </ul>
@@ -177,6 +188,11 @@ const projets = [
   color: #1a0906;
 }
 
+.projet__statut--realise {
+  background: var(--bw-gradient);
+  color: #050301;
+}
+
 .projet__corps {
   padding: 28px 26px 30px;
 }
@@ -190,6 +206,21 @@ const projets = [
   margin: 0;
   color: var(--bw-text-muted);
   font-size: 0.95rem;
+}
+
+.projet__lien {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--bw-text);
+  border-bottom: 1px solid var(--bw-coral);
+}
+
+.projet__lien:hover {
+  color: var(--bw-coral);
 }
 
 .projets__note {
