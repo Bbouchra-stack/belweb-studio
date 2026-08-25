@@ -79,7 +79,8 @@ const projets = [
 
       <p class="projets__note" v-reveal="120">
         Un projet en tête&nbsp;?
-        <a href="#contact">Parlons-en, le premier échange est gratuit.</a>
+        <a href="#contact">Parlons-en, le premier échange est gratuit</a>
+        — nous vous présentons alors l'ensemble de notre portfolio.
       </p>
     </div>
   </section>

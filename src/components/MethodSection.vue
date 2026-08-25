@@ -124,6 +124,7 @@ const etapes = [
 
 .etape__numero {
   display: block;
+  text-align: center;
   font-family: var(--font-display);
   font-style: italic;
   font-size: 2.6rem;
