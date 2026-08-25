@@ -37,6 +37,8 @@ jobs:
 
       - name: Préparation de GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Envoi du site construit
         uses: actions/upload-pages-artifact@v3
