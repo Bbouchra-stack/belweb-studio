@@ -131,7 +131,30 @@ onBeforeUnmount(() => {
   pointer-events: none;
 }
 
+/* La pastille flotte sans jamais toucher les bords de l'écran : au-delà
+   de sa largeur maximale, le contenu qui défile (bandeau de services…)
+   reste visible dans ces marges et semble passer "derrière" la nav au
+   moment où il croise sa hauteur en défilant. Ce voile, calé sur le
+   fond de page, estompe tout contenu à cet endroit avant qu'il
+   n'atteigne la pastille, quelle que soit sa largeur d'écran. */
+.bw-shell::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 112px;
+  background: linear-gradient(to bottom, var(--bw-bg) 0%, var(--bw-bg) 64%, transparent 100%);
+  pointer-events: none;
+}
+
 .bw-pill {
+  /* "position: relative" (sans décalage) est nécessaire pour que la
+     pastille se peigne dans la même étape que le voile ::before
+     ci-dessus (tous deux "positionnés") et gagne grâce à son ordre
+     plus tardif dans le code — sans cela, un élément statique se peint
+     toujours avant un élément positionné, même arrivé après lui. */
+  position: relative;
   pointer-events: auto;
   display: flex;
   align-items: center;
