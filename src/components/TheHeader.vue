@@ -50,7 +50,7 @@ onBeforeUnmount(() => {
   <header class="bw-shell" v-reveal:fade>
     <div class="bw-pill" :class="{ 'bw-pill--defile': estDefile }">
       <a :href="lienAccueil" class="bw-logo" @click="fermerMenu">
-        <LogoMark :taille="32" />
+        <LogoMark :taille="42" />
         <span class="bw-logo__texte">
           <span class="bw-logo__nom">BELWEB</span>
           <span class="bw-logo__studio">Studio</span>

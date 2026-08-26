@@ -19,7 +19,7 @@ import LogoMark from './LogoMark.vue'
     </div>
 
     <div class="signature__emblème">
-      <LogoMark :taille="46" />
+      <LogoMark :taille="58" />
     </div>
 
     <figcaption class="signature__legende">
@@ -155,8 +155,8 @@ import LogoMark from './LogoMark.vue'
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  width: 74px;
-  height: 74px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: rgba(7, 7, 10, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -197,8 +197,8 @@ import LogoMark from './LogoMark.vue'
   }
 
   .signature__emblème {
-    width: 62px;
-    height: 62px;
+    width: 70px;
+    height: 70px;
   }
 }
 

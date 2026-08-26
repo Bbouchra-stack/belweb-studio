@@ -36,7 +36,7 @@ const reseaux = [
     <div class="container pied__inner">
       <div class="pied__marque">
         <a :href="lienAccueil" class="logo">
-          <LogoMark :taille="36" />
+          <LogoMark :taille="46" />
           <span class="logo__texte">
             <span class="logo__nom">BELWEB</span>
             <span class="logo__studio">Studio</span>
