@@ -259,7 +259,7 @@ const reseaux = [
   padding-top: 24px;
   padding-bottom: 30px;
   border-top: 1px solid var(--bw-border);
-  font-size: 0.86rem;
+  font-size: 0.6rem;
   color: var(--bw-text-muted);
 }
 
