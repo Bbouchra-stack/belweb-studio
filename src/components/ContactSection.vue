@@ -477,7 +477,7 @@ function nouveauMessage() {
 
 .formulaire__mention {
   margin: 4px 0 22px;
-  font-size: 0.66rem;
+  font-size: 0.56rem;
   color: var(--c-muted);
 }
 
