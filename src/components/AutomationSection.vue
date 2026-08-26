@@ -141,6 +141,7 @@ const automatisations = [
 
 .auto {
   position: relative;
+  min-width: 0;
   overflow: hidden;
   padding: 34px 26px 30px;
   border: 1px solid var(--bw-border);
@@ -253,7 +254,7 @@ const automatisations = [
   place-items: center;
   width: 52px;
   height: 52px;
-  margin-bottom: 22px;
+  margin: 0 auto 22px;
   border-radius: 50%;
   background-color: var(--teinte-fond);
   border: 1px solid var(--teinte-bordure);
@@ -313,7 +314,8 @@ const automatisations = [
 .auto__titre {
   position: relative;
   z-index: 1;
-  font-size: 1.06rem;
+  text-align: center;
+  font-size: 1.02rem;
   margin-bottom: 10px;
 }
 

@@ -37,7 +37,6 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
 
         <div class="bw-hero__actions" v-reveal="440">
           <a href="#contact" class="bw-btn-primaire">Nous contacter</a>
-          <a href="#portfolio" class="bw-btn-ghost">Voir nos réalisations</a>
           <a :href="`tel:${coordonnees.telephoneLien}`" class="bw-btn-tel">
             <svg class="bw-btn-tel__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.36 2.3.56 3.5.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.7 21 3 13.3 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.56 3.5a1 1 0 0 1-.25 1z" />
@@ -131,7 +130,7 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 72px;
-  align-items: center;
+  align-items: start;
 }
 
 /* ---------- Surtitre ---------- */
@@ -229,27 +228,6 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   background: #fff;
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(139, 92, 246, 0.28), 0 10px 24px rgba(255, 122, 69, 0.16);
-}
-
-.bw-btn-ghost {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 28px;
-  border-radius: var(--bw-radius-pill);
-  border: 1px solid var(--bw-border-strong);
-  color: var(--bw-text);
-  font-size: 0.92rem;
-  font-weight: 600;
-  transition: border-color var(--bw-duration-fast) var(--bw-ease),
-    background-color var(--bw-duration-fast) var(--bw-ease);
-}
-
-.bw-btn-ghost:hover {
-  color: var(--bw-text);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.32);
 }
 
 .bw-btn-tel {
@@ -390,8 +368,7 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
     padding: 32px 0 76px;
   }
 
-  .bw-hero__actions .bw-btn-primaire,
-  .bw-hero__actions .bw-btn-ghost {
+  .bw-hero__actions .bw-btn-primaire {
     width: 100%;
   }
 

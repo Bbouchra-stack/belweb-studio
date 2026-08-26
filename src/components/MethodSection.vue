@@ -72,6 +72,7 @@ const etapes = [
 
 .etape {
   position: relative;
+  min-width: 0;
   padding: 36px 26px 32px;
   border: 1px solid var(--bw-border);
   border-radius: var(--bw-radius);
@@ -136,7 +137,8 @@ const etapes = [
 }
 
 .etape__titre {
-  font-size: 1.16rem;
+  text-align: center;
+  font-size: 1.04rem;
   margin-bottom: 12px;
 }
 

@@ -52,7 +52,7 @@ const libelleChoix = {
 
 .cookies__texte {
   margin: 0;
-  font-size: 0.65rem;
+  font-size: 0.56rem;
   line-height: 1.5;
   max-width: 46ch;
 }
@@ -70,7 +70,7 @@ const libelleChoix = {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.62rem;
+  font-size: 0.5rem;
 }
 
 .famille {

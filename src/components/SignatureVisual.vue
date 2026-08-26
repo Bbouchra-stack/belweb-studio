@@ -20,6 +20,8 @@ import LogoMark from './LogoMark.vue'
 const conteneur = ref(null)
 const actif = ref(false)
 
+const lieuCaracteres = 'Design sur mesure'.split('')
+
 const reduireMouvement =
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -144,12 +146,18 @@ const particules = [
 
     <span class="signature__scan" aria-hidden="true"></span>
 
-    <span class="signature__repere signature__repere--haut" aria-hidden="true"></span>
-    <span class="signature__repere signature__repere--bas" aria-hidden="true"></span>
-
     <figcaption class="signature__legende">
       <span class="signature__nom">BELWEB Studio</span>
-      <span class="signature__lieu">Design sur mesure</span>
+      <span class="signature__lieu" aria-label="Design sur mesure">
+        <span
+          v-for="(caractere, index) in lieuCaracteres"
+          :key="index"
+          class="signature__lieu-lettre"
+          :style="{ '--i': index }"
+          aria-hidden="true"
+          >{{ caractere === ' ' ? ' ' : caractere }}</span
+        >
+      </span>
     </figcaption>
   </figure>
 </template>
@@ -400,46 +408,6 @@ const particules = [
   pointer-events: none;
 }
 
-/* ---------- Micro-détails techniques ---------- */
-
-.signature__repere {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  opacity: 0;
-  animation: signature-fondu 0.8s ease 1.1s both;
-}
-
-.signature__repere::before,
-.signature__repere::after {
-  content: '';
-  position: absolute;
-  background: rgba(255, 255, 255, 0.22);
-}
-
-.signature__repere::before {
-  width: 100%;
-  height: 1px;
-  top: 0;
-}
-
-.signature__repere::after {
-  width: 1px;
-  height: 100%;
-  left: 0;
-}
-
-.signature__repere--haut {
-  top: 18px;
-  left: 20px;
-}
-
-.signature__repere--bas {
-  bottom: 18px;
-  right: 20px;
-  transform: rotate(180deg);
-}
-
 /* ---------- Légende ---------- */
 
 .signature__legende {
@@ -465,11 +433,33 @@ const particules = [
 }
 
 .signature__lieu {
-  font-size: 0.76rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  display: inline-flex;
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--bw-text-muted);
+}
+
+.signature__lieu-lettre {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  transform: translateY(5px);
+  animation: signature-lettre-apparait 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 45ms + 1900ms);
+}
+
+@keyframes signature-lettre-apparait {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ---------- Animations ---------- */
@@ -659,10 +649,6 @@ const particules = [
   .signature__flotte:nth-child(n + 6) {
     display: none;
   }
-
-  .signature__repere {
-    display: none;
-  }
 }
 
 @media (hover: none), (pointer: coarse) {
@@ -680,7 +666,7 @@ const particules = [
   .signature__orbite,
   .signature__emblème,
   .signature__legende,
-  .signature__repere {
+  .signature__lieu-lettre {
     animation-duration: 0.01ms !important;
     animation-delay: 0s !important;
   }
