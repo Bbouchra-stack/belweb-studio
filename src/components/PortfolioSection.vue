@@ -22,13 +22,13 @@ const classesStatut = {
 const projets = [
   {
     id: 1,
-    image: `${base}portfolio/projet-4.svg`,
-    alt: 'Aperçu du site de Vision Line Auto, garage automobile à Casablanca',
-    categorie: 'Automobile',
+    image: `${base}portfolio/integra-academy.jpg`,
+    alt: 'Aperçu de la page d\'accueil du site INTEGRA Academy, à Tanger',
+    categorie: 'Formation',
     statut: 'Réalisé',
-    titre: 'Vision Line Auto',
+    titre: 'INTEGRA Academy',
     description:
-      "Présentation des prestations d'entretien et de réparation, galerie des interventions et prise de rendez-vous en ligne.",
+      'Présentation de la formatrice, du programme et de la méthode, avec un espace actualités et un formulaire de contact.',
   },
   {
     id: 2,
@@ -42,14 +42,13 @@ const projets = [
   },
   {
     id: 3,
-    image: `${base}portfolio/integra-academy.jpg`,
-    alt: 'Aperçu du site INTEGRA Academy, à Tanger',
-    categorie: 'Formation',
+    image: `${base}portfolio/vision-line-auto.jpg`,
+    alt: "Aperçu de la page d'accueil du site Vision Line Auto, garage automobile à Tanger",
+    categorie: 'Automobile',
     statut: 'Réalisé',
-    titre: 'INTEGRA Academy',
+    titre: 'Vision Line Auto',
     description:
-      'Présentation de la formatrice, du programme et de la méthode, avec un espace actualités et un formulaire de contact.',
-    lien: 'https://bbouchra-stack.github.io/mon-site-web/',
+      'Diagnostic de précision, mécanique et peinture haute finition, avec demande de devis et prise de contact par WhatsApp.',
   },
 ]
 </script>
@@ -61,8 +60,8 @@ const projets = [
         <span class="eyebrow" v-reveal>Portfolio</span>
         <h2 class="section__title" v-reveal="60">Un aperçu de ce que nous créons</h2>
         <p class="section__subtitle" v-reveal="120">
-          Deux réalisations déjà livrées — INTEGRA Academy et Vision Line
-          Auto — aux côtés d'un concept de démonstration.
+          Un aperçu de nos réalisations livrées ; notre portfolio complet
+          est mis à disposition sur demande.
         </p>
       </div>
 
@@ -86,18 +85,13 @@ const projets = [
           <div class="projet__corps">
             <h3 class="projet__titre">{{ projet.titre }}</h3>
             <p class="projet__description">{{ projet.description }}</p>
-            <a v-if="projet.lien" :href="projet.lien" target="_blank" rel="noopener" class="projet__lien">
-              Voir le site
-              <span aria-hidden="true">↗</span>
-            </a>
           </div>
         </li>
       </ul>
 
       <p class="projets__note" v-reveal="120">
         Un projet en tête&nbsp;?
-        <a href="#contact">Parlons-en, le premier échange est gratuit</a>
-        — nous vous présentons alors l'ensemble de notre portfolio.
+        <a href="#contact">Parlons-en, le premier échange est gratuit.</a>
       </p>
     </div>
   </section>
@@ -206,21 +200,6 @@ const projets = [
   margin: 0;
   color: var(--bw-text-muted);
   font-size: 0.95rem;
-}
-
-.projet__lien {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--bw-text);
-  border-bottom: 1px solid var(--bw-coral);
-}
-
-.projet__lien:hover {
-  color: var(--bw-coral);
 }
 
 .projets__note {
