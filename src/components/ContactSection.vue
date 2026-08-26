@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { coordonnees, lienWhatsapp } from '../composables/coordonnees.js'
+import { lienWhatsapp } from '../composables/coordonnees.js'
 
 const champsVides = () => ({
   prenom: '',
@@ -108,30 +108,12 @@ function nouveauMessage() {
           <li>Un interlocuteur unique du début à la fin</li>
         </ul>
 
-        <div class="contact__coordonnees" v-reveal="240">
-          <p>
-            <strong>Téléphone</strong>
-            <a :href="`tel:${coordonnees.telephoneLien}`">{{ coordonnees.telephoneAffiche }}</a>
-          </p>
-          <p>
-            <strong>E-mail</strong>
-            <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a>
-          </p>
-          <p>
-            <strong>Adresse</strong>
-            <span>
-              {{ coordonnees.adresseLigne1 }}<br />
-              {{ coordonnees.adresseLigne2 }}
-            </span>
-          </p>
-        </div>
-
         <a
           class="contact__whatsapp"
           :href="lienWhatsapp"
           target="_blank"
           rel="noopener noreferrer"
-          v-reveal="280"
+          v-reveal="240"
         >
           <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
             <path
@@ -322,38 +304,6 @@ function nouveauMessage() {
   border-left: 2px solid var(--bw-coral);
   border-bottom: 2px solid var(--bw-coral);
   transform: rotate(-45deg);
-}
-
-.contact__coordonnees {
-  display: grid;
-  gap: 20px;
-  padding-top: 28px;
-  border-top: 1px solid var(--bw-border);
-}
-
-.contact__coordonnees p {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0;
-  color: var(--bw-text-muted);
-  font-size: 0.97rem;
-}
-
-.contact__coordonnees strong {
-  color: var(--bw-purple);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.contact__coordonnees a {
-  color: var(--bw-text);
-}
-
-.contact__coordonnees a:hover {
-  color: var(--bw-coral);
 }
 
 .contact__whatsapp {
