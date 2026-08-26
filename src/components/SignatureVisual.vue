@@ -251,7 +251,7 @@ const particules = [
 
 .signature__coeur {
   position: absolute;
-  top: 42%;
+  top: 37%;
   left: 50%;
   width: 300px;
   height: 300px;
@@ -413,7 +413,7 @@ const particules = [
 .signature__legende {
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 18px;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;

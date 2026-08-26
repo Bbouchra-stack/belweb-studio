@@ -36,12 +36,12 @@ defineProps({
     </defs>
 
     <g filter="url(#bw-flux-flou)">
-      <path class="bw-flux__ligne bw-flux__ligne--1" d="M -80 90 C 260 95, 560 210, 940 330" />
-      <path class="bw-flux__ligne bw-flux__ligne--2" d="M -80 200 C 240 195, 540 270, 940 350" />
-      <path class="bw-flux__ligne bw-flux__ligne--3" d="M -80 330 C 260 320, 560 350, 940 375" />
-      <path class="bw-flux__ligne bw-flux__ligne--4" d="M -80 470 C 260 450, 560 420, 940 395" />
-      <path class="bw-flux__ligne bw-flux__ligne--5" d="M -80 600 C 240 560, 540 450, 940 405" />
-      <path class="bw-flux__ligne bw-flux__ligne--6" d="M -80 710 C 260 630, 560 470, 940 415" />
+      <path class="bw-flux__ligne bw-flux__ligne--1" d="M -80 90 C 343 95, 739 210, 1241 330" />
+      <path class="bw-flux__ligne bw-flux__ligne--2" d="M -80 200 C 317 195, 713 270, 1241 350" />
+      <path class="bw-flux__ligne bw-flux__ligne--3" d="M -80 330 C 343 320, 739 350, 1241 375" />
+      <path class="bw-flux__ligne bw-flux__ligne--4" d="M -80 470 C 343 450, 739 420, 1241 395" />
+      <path class="bw-flux__ligne bw-flux__ligne--5" d="M -80 600 C 317 560, 713 450, 1241 405" />
+      <path class="bw-flux__ligne bw-flux__ligne--6" d="M -80 710 C 343 630, 739 470, 1241 415" />
     </g>
   </svg>
 </template>
