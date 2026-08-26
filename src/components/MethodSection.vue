@@ -24,7 +24,7 @@ const etapes = [
   {
     numero: '04',
     ton: 'orange',
-    titre: 'Lancement et accompagnement',
+    titre: 'Lancement & accompagnement',
     description:
       "Mise en ligne, nom de domaine, hébergement : on s'occupe de tout. Puis nous vous formons pour que vous restiez autonome au quotidien.",
   },
