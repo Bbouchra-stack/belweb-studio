@@ -324,6 +324,7 @@ onBeforeUnmount(() => {
 .bw-cta {
   position: relative;
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 9px;
   padding: 11px 20px;
@@ -428,12 +429,15 @@ onBeforeUnmount(() => {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Seuil relevé de 940 à 1080px : avec le 5ᵉ lien "Automatisation" ajouté
-   à la nav, la largeur naturelle (logo + liens + CTA) dépasse 1000px, et
-   en dessous de ce nouveau seuil le lien pliait sur deux lignes ou le
-   bouton CTA débordait de la pastille (flex-shrink par défaut, sans
-   place pour rétrécir sans casser la mise en page). */
-@media (max-width: 1080px) {
+/* Seuil relevé de 940 à 1200px : avec le 5ᵉ lien "Automatisation IA"
+   ajouté à la nav, la largeur naturelle (logo + liens + CTA) approche
+   1050px avec la police de secours (celle mesurée en test local, Inter
+   étant parfois bloquée) — mais peut être sensiblement plus large une
+   fois Inter réellement chargée en production. 1080px ne laissait donc
+   pas une marge fiable dans tous les cas : le bouton d'appel à l'action
+   pouvait déborder de la pastille et sortir de l'écran. Marge large
+   pour ne plus dépendre d'un calcul de police au pixel près. */
+@media (max-width: 1200px) {
   .bw-nav {
     position: fixed;
     top: 82px;
