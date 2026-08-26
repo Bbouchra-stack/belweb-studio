@@ -30,9 +30,10 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
         </h1>
 
         <p class="bw-hero__sous-titre" v-reveal="340">
-          BELWEB Studio dessine et développe des sites sur mesure pour les
-          professionnels et les entreprises de Casablanca. Élégants, rapides,
-          et pensés pour que celles et ceux qui vous cherchent vous trouvent.
+          BELWEB Studio dessine des sites sur mesure et automatise, grâce à
+          l'IA, les tâches répétitives des professionnels et des entreprises
+          de Casablanca. Élégants, rapides, et pensés pour que celles et ceux
+          qui vous cherchent vous trouvent.
         </p>
 
         <div class="bw-hero__actions" v-reveal="440">
