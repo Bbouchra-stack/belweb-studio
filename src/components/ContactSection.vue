@@ -296,6 +296,7 @@ function nouveauMessage() {
 .contact__intro > p {
   color: var(--bw-text-muted);
   max-width: 46ch;
+  text-align: justify;
 }
 
 .contact__points {
