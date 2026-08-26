@@ -15,7 +15,7 @@ export const coordonnees = {
   email: 'contact@belwebstudio.ma',
   adresseLigne1: '374, Business Center',
   adresseLigne2: 'Bd Abdelmoumen — Casablanca',
-  horaires: 'Du lundi au vendredi, 9h – 18h',
+  horaires: 'Du lundi au vendredi, 09h - 19h',
 }
 
 /** Prestataire technique qui héberge le site. */
