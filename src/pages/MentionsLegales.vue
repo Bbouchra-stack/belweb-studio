@@ -9,23 +9,11 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     chapeau="Informations légales relatives au site belwebstudio.ma, conformément à la législation marocaine en vigueur."
     mise-a-jour="août 2026"
   >
-    <div class="encadre">
-      <p>
-        <strong>Reste à compléter avant la mise en ligne :</strong> le numéro de
-        récépissé de déclaration à la CNDP (section 4). Nous vous recommandons
-        également de faire relire ces pages par un juriste avant publication.
-      </p>
-    </div>
-
     <h2>1. Éditeur du site</h2>
     <p>Le présent site est édité par&nbsp;:</p>
     <ul>
       <li><strong>Dénomination sociale&nbsp;:</strong> {{ coordonnees.nom }}</li>
       <li><strong>Forme juridique&nbsp;:</strong> {{ coordonnees.formeJuridique }}</li>
-      <li>
-        <strong>Siège social&nbsp;:</strong> {{ coordonnees.adresseLigne1 }},
-        {{ coordonnees.adresseLigne2 }}, Maroc
-      </li>
       <li>
         <strong>Identifiant Commun de l'Entreprise (ICE)&nbsp;:</strong>
         n° {{ coordonnees.ice }}
@@ -81,7 +69,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     <ul>
       <li>
         <strong>Déclaration CNDP&nbsp;:</strong>
-        <span class="a-completer">n° de récépissé de déclaration</span>
+        <span class="a-completer">sera communiqué dès réception</span>
       </li>
     </ul>
     <p>
@@ -90,18 +78,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       <a href="politique-de-confidentialite.html">politique de confidentialité</a>.
     </p>
 
-    <h2>5. Commerce et échanges électroniques</h2>
-    <p>
-      Les échanges effectués via ce site (formulaire de contact, courriers
-      électroniques) relèvent de la <strong>loi n° 53-05 relative à l'échange
-      électronique de données juridiques</strong>. Les informations relatives
-      aux prestations proposées sont fournies à titre indicatif&nbsp;; seul le
-      devis signé entre les parties a valeur contractuelle, dans les
-      conditions précisées par nos <a href="cgv.html">conditions générales
-      de vente</a>.
-    </p>
-
-    <h2>6. Limitation de responsabilité</h2>
+    <h2>5. Limitation de responsabilité</h2>
     <p>
       {{ coordonnees.nom }} s'efforce d'assurer l'exactitude et la mise à jour
       des informations diffusées sur ce site, sans pouvoir en garantir
@@ -115,7 +92,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       l'usage qu'il fait des informations consultées.
     </p>
 
-    <h2>7. Liens hypertextes</h2>
+    <h2>6. Liens hypertextes</h2>
     <p>
       Ce site peut contenir des liens vers des sites tiers (réseaux sociaux,
       WhatsApp, partenaires). {{ coordonnees.nom }} n'exerce aucun contrôle sur
@@ -128,19 +105,29 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       liée ne soit pas insérée dans un cadre (frame).
     </p>
 
-    <h2>8. Droit applicable et juridiction compétente</h2>
+    <h2>7. Droit applicable et juridiction compétente</h2>
     <p>
       Les présentes mentions légales sont régies par le droit marocain. En cas
       de litige, et à défaut de résolution amiable, compétence exclusive est
       attribuée aux tribunaux compétents de Casablanca.
     </p>
 
-    <h2>9. Nous contacter</h2>
+    <h2>8. Nous contacter</h2>
     <p>
       Pour toute question relative aux présentes mentions légales&nbsp;:
       <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a> —
-      {{ coordonnees.telephoneAffiche }} — {{ coordonnees.adresseLigne1 }},
-      {{ coordonnees.adresseLigne2 }}.
+      <span class="tel-entier">{{ coordonnees.telephoneAffiche }}</span>.
     </p>
   </LegalLayout>
 </template>
+
+<style scoped>
+p,
+li {
+  text-align: justify;
+}
+
+.tel-entier {
+  white-space: nowrap;
+}
+</style>

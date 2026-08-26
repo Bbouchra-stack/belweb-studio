@@ -12,8 +12,7 @@ import { coordonnees } from '../composables/coordonnees.js'
     <p>
       {{ coordonnees.nom }} («&nbsp;le Studio&nbsp;») est une entreprise
       individuelle relevant du régime de l'auto-entrepreneur, Identifiant
-      Commun de l'Entreprise (ICE) n° {{ coordonnees.ice }}, dont le siège est
-      situé {{ coordonnees.adresseLigne1 }}, {{ coordonnees.adresseLigne2 }}.
+      Commun de l'Entreprise (ICE) n° {{ coordonnees.ice }}.
       Les présentes conditions générales de vente («&nbsp;CGV&nbsp;»)
       régissent les relations entre le Studio et toute personne physique ou
       morale lui passant commande («&nbsp;le Client&nbsp;»). Toute commande
@@ -46,10 +45,9 @@ import { coordonnees } from '../composables/coordonnees.js'
 
     <h2>3. Prix et paiement</h2>
     <p>
-      Les prix sont exprimés en dirhams marocains et nets de taxe, le Studio
-      relevant du régime de l'auto-entrepreneur. Sauf mention contraire au
-      devis, un acompte de 30&nbsp;% est versé à la commande et le solde est
-      réglé avant la mise en ligne ou la remise des livrables finaux. Les
+      Les prix sont exprimés en dirhams marocains, un acompte de 30&nbsp;% est
+      versé à la commande et le solde est réglé avant la mise en ligne ou la
+      remise des livrables finaux. Les
       prestations récurrentes (hébergement, maintenance) sont facturées selon
       une périodicité annuelle ou mensuelle précisée au devis. Tout retard de
       paiement peut entraîner la suspension de la prestation jusqu'à
@@ -137,8 +135,18 @@ import { coordonnees } from '../composables/coordonnees.js'
       Pour toute question relative aux présentes conditions générales de
       vente&nbsp;:
       <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a> —
-      {{ coordonnees.telephoneAffiche }} — {{ coordonnees.adresseLigne1 }},
-      {{ coordonnees.adresseLigne2 }}.
+      <span class="tel-entier">{{ coordonnees.telephoneAffiche }}</span>.
     </p>
   </LegalLayout>
 </template>
+
+<style scoped>
+p,
+li {
+  text-align: justify;
+}
+
+.tel-entier {
+  white-space: nowrap;
+}
+</style>

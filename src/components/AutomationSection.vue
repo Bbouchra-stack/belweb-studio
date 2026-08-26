@@ -123,7 +123,7 @@ const automatisations = [
           premier échange est gratuit — on identifie ensemble ce qui vous ferait
           gagner le plus de temps.
         </p>
-        <a href="#contact" class="btn btn--primary">Discuter de mon projet</a>
+        <a href="#contact" class="btn btn--primary">Parlons de votre projet</a>
       </div>
     </div>
   </section>

@@ -497,31 +497,6 @@ button {
   font-weight: 600;
 }
 
-.prose .tableau {
-  width: 100%;
-  margin: 18px 0 26px;
-  border-collapse: collapse;
-  font-size: 0.86rem;
-}
-
-.prose .tableau th,
-.prose .tableau td {
-  padding: 12px 15px;
-  border: 1px solid var(--bw-border);
-  text-align: left;
-  vertical-align: top;
-}
-
-.prose .tableau th {
-  background-color: var(--bw-bg-alt);
-  color: var(--bw-text);
-  font-weight: 600;
-}
-
-.prose .tableau-conteneur {
-  overflow-x: auto;
-}
-
 /* ---------- Animations d'apparition au défilement ---------- */
 /* Pilotées par la directive v-reveal (src/directives/reveal.js) */
 

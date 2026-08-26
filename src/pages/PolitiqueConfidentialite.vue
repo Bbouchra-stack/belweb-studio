@@ -9,15 +9,6 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     chapeau="Comment BELWEB Studio collecte, utilise et protège vos données personnelles, conformément à la loi n° 09-08 et sous le contrôle de la CNDP."
     mise-a-jour="août 2026"
   >
-    <div class="encadre">
-      <p>
-        <strong>Reste à compléter avant la mise en ligne :</strong> le numéro de
-        déclaration CNDP. Faites ensuite relire cette page par un juriste. Toute
-        modification du formulaire ou ajout d'un outil de mesure d'audience doit
-        être reportée ici.
-      </p>
-    </div>
-
     <h2>1. Qui est responsable du traitement&nbsp;?</h2>
     <p>
       Le responsable du traitement des données collectées sur ce site est
@@ -29,7 +20,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       <li><strong>Téléphone&nbsp;:</strong> {{ coordonnees.telephoneAffiche }}</li>
       <li>
         <strong>Déclaration CNDP&nbsp;:</strong>
-        <span class="a-completer">n° de récépissé</span>
+        <span class="a-completer">sera communiqué dès réception</span>
       </li>
     </ul>
     <p>
@@ -46,51 +37,6 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       Nous appliquons le principe de minimisation&nbsp;: nous ne collectons que
       les données strictement nécessaires au traitement de votre demande.
     </p>
-
-    <div class="tableau-conteneur">
-      <table class="tableau">
-        <thead>
-          <tr>
-            <th>Données</th>
-            <th>Origine</th>
-            <th>Finalité</th>
-            <th>Conservation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Prénom, nom</td>
-            <td>Formulaire de contact</td>
-            <td>Vous identifier et vous répondre personnellement</td>
-            <td>3 ans à compter du dernier contact</td>
-          </tr>
-          <tr>
-            <td>Adresse e-mail</td>
-            <td>Formulaire de contact</td>
-            <td>Vous transmettre notre réponse et votre devis</td>
-            <td>3 ans à compter du dernier contact</td>
-          </tr>
-          <tr>
-            <td>Numéro de téléphone</td>
-            <td>Formulaire de contact, WhatsApp</td>
-            <td>Vous rappeler si vous le souhaitez</td>
-            <td>3 ans à compter du dernier contact</td>
-          </tr>
-          <tr>
-            <td>Description du projet</td>
-            <td>Formulaire de contact</td>
-            <td>Préparer une proposition adaptée à votre besoin</td>
-            <td>3 ans à compter du dernier contact</td>
-          </tr>
-          <tr>
-            <td>Choix de consentement aux cookies</td>
-            <td>Bandeau cookies</td>
-            <td>Mémoriser votre choix et ne plus vous solliciter</td>
-            <td>6 mois</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
     <p>
       Nous ne collectons <strong>aucune donnée sensible</strong> au sens de
@@ -119,14 +65,6 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       <strong>Vos données ne sont ni vendues, ni louées, ni échangées</strong>
       avec des tiers à des fins commerciales.
     </p>
-    <p>
-      Si un transfert de données vers un pays étranger devait avoir lieu du fait
-      de la localisation de nos prestataires techniques, il serait effectué dans
-      le respect des articles 43 et 44 de la loi 09-08, qui subordonnent un tel
-      transfert à un niveau de protection suffisant et, le cas échéant, à
-      l'autorisation préalable de la CNDP.
-    </p>
-
     <h2>5. Quels sont vos droits&nbsp;?</h2>
     <p>
       Conformément aux articles 7, 8 et 9 de la loi 09-08, vous disposez
@@ -220,7 +158,18 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     <p>
       Pour toute question relative à vos données personnelles&nbsp;:
       <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a> —
-      {{ coordonnees.telephoneAffiche }}.
+      <span class="tel-entier">{{ coordonnees.telephoneAffiche }}</span>.
     </p>
   </LegalLayout>
 </template>
+
+<style scoped>
+p,
+li {
+  text-align: justify;
+}
+
+.tel-entier {
+  white-space: nowrap;
+}
+</style>

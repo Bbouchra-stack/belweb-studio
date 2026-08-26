@@ -12,6 +12,7 @@ const links = computed(() =>
     { ancre: '#methode', label: 'Méthode' },
     { ancre: '#avantages', label: 'Avantages' },
     { ancre: '#portfolio', label: 'Réalisations' },
+    { ancre: '#automatisation', label: 'Automatisation' },
     { ancre: '#faq', label: 'FAQ' },
   ].map((lien) => ({ ...lien, href: `${props.prefixeAncres}${lien.ancre}` })),
 )
@@ -389,7 +390,12 @@ onBeforeUnmount(() => {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-@media (max-width: 940px) {
+/* Seuil relevé de 940 à 1080px : avec le 5ᵉ lien "Automatisation" ajouté
+   à la nav, la largeur naturelle (logo + liens + CTA) dépasse 1000px, et
+   en dessous de ce nouveau seuil le lien pliait sur deux lignes ou le
+   bouton CTA débordait de la pastille (flex-shrink par défaut, sans
+   place pour rétrécir sans casser la mise en page). */
+@media (max-width: 1080px) {
   .bw-nav {
     position: fixed;
     top: 82px;
