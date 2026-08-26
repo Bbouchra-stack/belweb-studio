@@ -200,6 +200,7 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   color: var(--bw-text-muted);
   max-width: 46ch;
   margin: 0 0 38px;
+  text-align: justify;
 }
 
 /* ---------- Actions ---------- */
