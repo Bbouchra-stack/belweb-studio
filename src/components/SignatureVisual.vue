@@ -146,11 +146,10 @@ const particules = [
 
     <span class="signature__repere signature__repere--haut" aria-hidden="true"></span>
     <span class="signature__repere signature__repere--bas" aria-hidden="true"></span>
-    <span class="signature__label" aria-hidden="true">BW · 01</span>
 
     <figcaption class="signature__legende">
       <span class="signature__nom">BELWEB Studio</span>
-      <span class="signature__lieu">Design sur mesure, à Casablanca</span>
+      <span class="signature__lieu">Design sur mesure</span>
     </figcaption>
   </figure>
 </template>
@@ -441,18 +440,6 @@ const particules = [
   transform: rotate(180deg);
 }
 
-.signature__label {
-  position: absolute;
-  top: 20px;
-  right: 22px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.28);
-  opacity: 0;
-  animation: signature-fondu 0.8s ease 1.2s both;
-}
-
 /* ---------- Légende ---------- */
 
 .signature__legende {
@@ -673,8 +660,7 @@ const particules = [
     display: none;
   }
 
-  .signature__repere,
-  .signature__label {
+  .signature__repere {
     display: none;
   }
 }
@@ -694,8 +680,7 @@ const particules = [
   .signature__orbite,
   .signature__emblème,
   .signature__legende,
-  .signature__repere,
-  .signature__label {
+  .signature__repere {
     animation-duration: 0.01ms !important;
     animation-delay: 0s !important;
   }

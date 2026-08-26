@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
 <template>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <header class="bw-shell" v-reveal:fade>
+  <header class="bw-shell" :class="{ 'bw-shell--defile': estDefile }" v-reveal:fade>
     <div class="bw-pill" :class="{ 'bw-pill--defile': estDefile }">
       <a :href="lienAccueil" class="bw-logo" @click="fermerMenu">
         <LogoMark :taille="42" />
@@ -132,20 +132,41 @@ onBeforeUnmount(() => {
 }
 
 /* La pastille flotte sans jamais toucher les bords de l'écran : au-delà
-   de sa largeur maximale, le contenu qui défile (bandeau de services…)
-   reste visible dans ces marges et semble passer "derrière" la nav au
-   moment où il croise sa hauteur en défilant. Ce voile, calé sur le
-   fond de page, estompe tout contenu à cet endroit avant qu'il
-   n'atteigne la pastille, quelle que soit sa largeur d'écran. */
+   de sa largeur maximale, le contenu qui défile (bandeau de services,
+   titre du héro…) reste visible dans ces marges et semble passer
+   "derrière" la nav au moment où il croise sa hauteur en défilant. Ce
+   voile, calé sur le fond de page, estompe tout contenu à cet endroit
+   avant qu'il n'atteigne la pastille, quelle que soit sa largeur
+   d'écran.
+   Le "top: -18px" (et non 0) compense un piège : la directive
+   v-reveal:fade pose "will-change: opacity, transform" sur .bw-shell,
+   ce qui — au même titre qu'un vrai "transform" — fait de .bw-shell le
+   repère de positionnement de ses propres descendants "fixed". Sans ce
+   décalage, le voile démarre au top de .bw-shell (18px de l'écran) et
+   non du haut réel de l'écran, laissant une bande de 18px totalement
+   non protégée.
+   Hauteur volontairement modeste au repos (juste la pastille + une
+   petite marge) : le héro réserve ~175px de dégagement sous la nav, et
+   un voile plus haut assombrirait à tort le surtitre qui s'y trouve
+   alors qu'aucun défilement n'est en cours. La version large (qui
+   couvre confortablement le gros titre du héro pendant qu'il défile)
+   ne s'active qu'une fois le défilement commencé (.bw-shell--defile),
+   quand ce dégagement n'a de toute façon plus lieu d'être visible. */
 .bw-shell::before {
   content: '';
   position: fixed;
-  top: 0;
+  top: -18px;
   left: 0;
   right: 0;
-  height: 112px;
-  background: linear-gradient(to bottom, var(--bw-bg) 0%, var(--bw-bg) 64%, transparent 100%);
+  height: 130px;
+  background: linear-gradient(to bottom, var(--bw-bg) 0%, var(--bw-bg) 68%, transparent 100%);
+  transition: height var(--bw-duration) var(--bw-ease);
   pointer-events: none;
+}
+
+.bw-shell--defile::before {
+  height: 280px;
+  background: linear-gradient(to bottom, var(--bw-bg) 0%, var(--bw-bg) 70%, transparent 100%);
 }
 
 .bw-pill {
