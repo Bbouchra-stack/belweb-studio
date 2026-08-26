@@ -183,6 +183,7 @@ const reseaux = [
   max-width: 40ch;
   color: var(--bw-text-muted);
   font-size: 0.94rem;
+  text-align: justify;
 }
 
 .reseaux {
