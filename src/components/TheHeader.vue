@@ -18,7 +18,6 @@ const links = computed(() =>
 )
 
 const lienAccueil = computed(() => `${props.prefixeAncres}#accueil`)
-const lienContact = computed(() => `${props.prefixeAncres}#contact`)
 
 const menuOuvert = ref(false)
 const estDefile = ref(false)
@@ -74,19 +73,9 @@ onBeforeUnmount(() => {
             </a>
           </li>
         </ul>
-
-        <a :href="lienContact" class="bw-cta bw-nav__cta" @click="fermerMenu">
-          <span>Parlons de votre projet</span>
-          <span class="bw-cta__fleche" aria-hidden="true">→</span>
-        </a>
       </nav>
 
       <div class="bw-pill__droite">
-        <a :href="lienContact" class="bw-cta bw-cta--desktop" @click="fermerMenu">
-          <span>Parlons de votre projet</span>
-          <span class="bw-cta__fleche" aria-hidden="true">→</span>
-        </a>
-
         <button
           class="bw-burger"
           type="button"
@@ -317,80 +306,11 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ---------- CTA dégradé plein (texte foncé pour rester lisible sur
-   toutes les teintes du dégradé — même principe que les badges
-   « En cours » du portfolio) ---------- */
-
-.bw-cta {
-  position: relative;
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 9px;
-  padding: 11px 20px;
-  border-radius: var(--bw-radius-pill);
-  background: var(--bw-gradient);
-  background-size: 160% auto;
-  background-position: 0% 50%;
-  color: #050301;
-  font-size: 0.85rem;
-  font-weight: 700;
-  white-space: nowrap;
-  transition: background-position var(--bw-duration) var(--bw-ease),
-    filter var(--bw-duration) var(--bw-ease), transform var(--bw-duration-fast) var(--bw-ease);
-  /* Pulsation continue pour attirer l'œil vers le seul point de contact
-     visible dans l'en-tête (pas de numéro affiché ici). Variation de
-     luminosité pure (filter), jamais un box-shadow à étalement : ce
-     dernier avait déjà débordé du contour de la pastille une fois
-     réduite (état « défilé », padding plus fin) — un filtre ne peut
-     géométriquement jamais dépasser la boîte du bouton. */
-  animation: bw-cta-pulsation 2.2s ease-in-out infinite;
-}
-
-@keyframes bw-cta-pulsation {
-  0%,
-  100% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.22);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bw-cta {
-    animation: none;
-  }
-}
-
-.bw-cta:hover {
-  color: #050301;
-  background-position: 100% 50%;
-  transform: translateY(-1px);
-  filter: brightness(1.1);
-  animation-play-state: paused;
-}
-
-.bw-cta__fleche {
-  display: inline-block;
-  transition: transform var(--bw-duration-fast) var(--bw-ease);
-}
-
-.bw-cta:hover .bw-cta__fleche {
-  transform: translateX(3px);
-}
-
 .bw-pill__droite {
   display: flex;
   align-items: center;
   gap: 10px;
   flex: none;
-}
-
-/* Doit venir après .bw-cta dans la feuille de styles : même spécificité,
-   c'est l'ordre qui tranche le "display" en cas d'égalité. */
-.bw-nav__cta {
-  display: none;
 }
 
 /* ---------- Burger ---------- */
@@ -429,15 +349,13 @@ onBeforeUnmount(() => {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Seuil relevé de 940 à 1200px : avec le 5ᵉ lien "Automatisation IA"
-   ajouté à la nav, la largeur naturelle (logo + liens + CTA) approche
-   1050px avec la police de secours (celle mesurée en test local, Inter
-   étant parfois bloquée) — mais peut être sensiblement plus large une
-   fois Inter réellement chargée en production. 1080px ne laissait donc
-   pas une marge fiable dans tous les cas : le bouton d'appel à l'action
-   pouvait déborder de la pastille et sortir de l'écran. Marge large
-   pour ne plus dépendre d'un calcul de police au pixel près. */
-@media (max-width: 1200px) {
+/* Le bouton d'appel à l'action a été retiré de l'en-tête (déplacé sous
+   le héro, où il remplace "Nous contacter") : la nav n'a plus besoin
+   d'autant de largeur. Seuil abaissé de 1200 à 960px, avec une marge
+   confortable au-delà des ~815px mesurés en test local (police de
+   secours, Inter parfois bloquée) pour rester fiable quelle que soit la
+   police réellement chargée en production. */
+@media (max-width: 960px) {
   .bw-nav {
     position: fixed;
     top: 82px;
@@ -475,16 +393,6 @@ onBeforeUnmount(() => {
   .bw-nav__lien {
     padding: 13px 14px;
     border-radius: var(--bw-radius-sm);
-  }
-
-  .bw-nav__cta {
-    display: inline-flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .bw-cta--desktop {
-    display: none;
   }
 
   .bw-burger {
