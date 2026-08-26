@@ -12,7 +12,7 @@ const links = computed(() =>
     { ancre: '#methode', label: 'Méthode' },
     { ancre: '#avantages', label: 'Avantages' },
     { ancre: '#portfolio', label: 'Réalisations' },
-    { ancre: '#automatisation', label: 'Automatisation' },
+    { ancre: '#automatisation', label: 'Automatisation IA' },
     { ancre: '#faq', label: 'FAQ' },
   ].map((lien) => ({ ...lien, href: `${props.prefixeAncres}${lien.ancre}` })),
 )
@@ -66,7 +66,12 @@ onBeforeUnmount(() => {
       >
         <ul class="bw-nav__liste">
           <li v-for="lien in links" :key="lien.ancre">
-            <a :href="lien.href" class="bw-nav__lien" @click="fermerMenu">{{ lien.label }}</a>
+            <a :href="lien.href" class="bw-nav__lien" @click="fermerMenu">
+              <template v-if="lien.ancre === '#automatisation'"
+                >Automatisation <span class="bw-nav__ia">IA</span></template
+              >
+              <template v-else>{{ lien.label }}</template>
+            </a>
           </li>
         </ul>
 
@@ -277,6 +282,39 @@ onBeforeUnmount(() => {
 .bw-nav__lien:hover {
   color: var(--bw-text);
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* "IA" du lien Automatisation : rempli du dégradé de marque et animé
+   (déplacement du dégradé + éclat de luminosité) pour scintiller
+   doucement et attirer l'œil sur ce service récent, sans texte
+   clignotant ni mouvement brusque. */
+.bw-nav__ia {
+  background: var(--bw-gradient);
+  background-size: 200% auto;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  animation: bw-nav-ia-scintiller 2.6s ease-in-out infinite;
+}
+
+@keyframes bw-nav-ia-scintiller {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bw-nav__ia {
+    animation: none;
+  }
 }
 
 /* ---------- CTA dégradé plein (texte foncé pour rester lisible sur
