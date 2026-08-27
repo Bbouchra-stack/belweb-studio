@@ -32,7 +32,7 @@ const projets = [
   },
   {
     id: 2,
-    image: `${base}portfolio/projet-1.svg`,
+    image: `${base}portfolio/cabinet-dentaire-serenite.jpg`,
     alt: "Aperçu du concept de site pour un cabinet dentaire",
     categorie: 'Cabinet médical',
     statut: 'Concept',
