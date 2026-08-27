@@ -10,7 +10,6 @@ import AutomationSection from './components/AutomationSection.vue'
 import FaqSection from './components/FaqSection.vue'
 import StudioNote from './components/StudioNote.vue'
 import ContactSection from './components/ContactSection.vue'
-import CookiesSection from './components/CookiesSection.vue'
 import TheFooter from './components/TheFooter.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
 import CookieBanner from './components/CookieBanner.vue'
@@ -30,7 +29,6 @@ import ProjectModal from './components/ProjectModal.vue'
     <FaqSection />
     <StudioNote />
     <ContactSection />
-    <CookiesSection />
   </main>
   <TheFooter />
 
