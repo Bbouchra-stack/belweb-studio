@@ -1,9 +1,11 @@
 <script setup>
 /**
- * Marque BELWEB — deux lames inclinées, dégradé violet → magenta → corail →
- * orange (identique à --bw-gradient) pour rester cohérente avec la nouvelle
- * direction sombre premium. Provisoire : à remplacer par le fichier définitif
- * fourni par le studio.
+ * Marque BELWEB — hexagone et point central, dégradé violet → magenta →
+ * corail → orange (identique à --bw-gradient, même angle ~horizontal) pour
+ * rester cohérente avec la direction sombre premium. Hexagone régulier
+ * calculé trigonométriquement (six sommets à rayon constant, écartés de 60°)
+ * pour une géométrie exacte, avec jonctions arrondies pour rester net à
+ * très petite taille (favicon, en-tête).
  */
 defineProps({
   taille: { type: Number, default: 40 },
@@ -14,18 +16,25 @@ defineProps({
   <span class="marque" :style="{ width: `${taille}px`, height: `${taille}px` }" aria-hidden="true">
     <svg viewBox="0 0 48 48" role="presentation">
       <defs>
-        <linearGradient :id="`lame1-${taille}`" x1="0" y1="0" x2="0.4" y2="1">
+        <linearGradient :id="`hex-${taille}`" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stop-color="#8b5cf6" />
-          <stop offset="100%" stop-color="#c84edc" />
-        </linearGradient>
-        <linearGradient :id="`lame2-${taille}`" x1="0" y1="0" x2="0.5" y2="1">
-          <stop offset="0%" stop-color="#ec4899" />
-          <stop offset="55%" stop-color="#ff5b6e" />
+          <stop offset="42%" stop-color="#c84edc" />
+          <stop offset="74%" stop-color="#ff5b6e" />
           <stop offset="100%" stop-color="#ff7a45" />
         </linearGradient>
+        <radialGradient :id="`noyau-${taille}`" cx="35%" cy="35%" r="75%">
+          <stop offset="0%" stop-color="#c84edc" />
+          <stop offset="100%" stop-color="#8b5cf6" />
+        </radialGradient>
       </defs>
-      <path d="M15 7 L26 11 L20 43 L9 39 Z" :fill="`url(#lame1-${taille})`" />
-      <path d="M30 5 L40 9 L34 41 L24 37 Z" :fill="`url(#lame2-${taille})`" />
+      <path
+        d="M24 6.4 L39.24 15.2 L39.24 32.8 L24 41.6 L8.76 32.8 L8.76 15.2 Z"
+        fill="none"
+        :stroke="`url(#hex-${taille})`"
+        stroke-width="4"
+        stroke-linejoin="round"
+      />
+      <circle cx="24" cy="24" r="5.4" :fill="`url(#noyau-${taille})`" />
     </svg>
   </span>
 </template>
