@@ -69,7 +69,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     <ul>
       <li>
         <strong>Déclaration CNDP&nbsp;:</strong>
-        <span class="a-completer">sera communiqué dès réception</span>
+        sera communiqué dès réception
       </li>
     </ul>
     <p>

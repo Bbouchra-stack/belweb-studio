@@ -472,31 +472,6 @@ button {
   color: var(--bw-text);
 }
 
-/* Encadré d'information */
-.prose .encadre {
-  margin: 24px 0;
-  padding: 18px 22px;
-  border-left: 3px solid var(--bw-purple);
-  border-radius: 0 var(--bw-radius-sm) var(--bw-radius-sm) 0;
-  background-color: var(--bw-bg-alt);
-}
-
-.prose .encadre p:last-child {
-  margin-bottom: 0;
-}
-
-/* Champ à renseigner par le studio avant mise en ligne */
-.prose .a-completer {
-  display: inline-block;
-  padding: 1px 9px;
-  border: 1px dashed var(--bw-orange);
-  border-radius: 3px;
-  background-color: rgba(255, 122, 69, 0.12);
-  color: var(--bw-orange);
-  font-size: 0.85em;
-  font-weight: 600;
-}
-
 /* ---------- Animations d'apparition au défilement ---------- */
 /* Pilotées par la directive v-reveal (src/directives/reveal.js) */
 

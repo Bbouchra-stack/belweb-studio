@@ -20,7 +20,7 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
       <li><strong>Téléphone&nbsp;:</strong> {{ coordonnees.telephoneAffiche }}</li>
       <li>
         <strong>Déclaration CNDP&nbsp;:</strong>
-        <span class="a-completer">sera communiqué dès réception</span>
+        sera communiqué dès réception
       </li>
     </ul>
     <p>
