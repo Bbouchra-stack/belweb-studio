@@ -252,7 +252,10 @@ const reseaux = [
   justify-content: space-between;
   gap: 10px 24px;
   padding-top: 24px;
-  padding-bottom: 30px;
+  /* Marge généreuse pour que le bouton WhatsApp et la pastille Cookies,
+     tous deux position:fixed en bas de l'écran, ne recouvrent jamais
+     cette ligne quand la page est courte et défilée jusqu'en bas. */
+  padding-bottom: 100px;
   border-top: 1px solid var(--bw-border);
   font-size: 0.6rem;
   color: var(--bw-text-muted);
