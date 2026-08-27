@@ -17,7 +17,7 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
     <div class="bw-hero__grain" aria-hidden="true"></div>
 
     <div class="container bw-hero__inner">
-      <div class="bw-hero__contenu">
+      <div class="bw-hero__titre-bloc">
         <span class="bw-eyebrow" v-reveal:fade>
           <span class="bw-eyebrow__point" aria-hidden="true"></span>
           Studio digital · Casablanca
@@ -28,7 +28,13 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
           <span class="bw-hero__ligne bw-hero__ligne--degrade" v-reveal="110">confiance</span>
           <span class="bw-hero__ligne" v-reveal="220">dès la première seconde</span>
         </h1>
+      </div>
 
+      <div class="bw-hero__preuve" v-reveal:scale="260">
+        <SignatureVisual />
+      </div>
+
+      <div class="bw-hero__contenu">
         <p class="bw-hero__sous-titre" v-reveal="340">
           Sites web sur mesure et automatisation par l'IA&nbsp;: BELWEB
           Studio aide les professionnels et entreprises de Casablanca à
@@ -59,10 +65,6 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
         <p class="bw-hero__signature" v-reveal="520">
           Premier échange gratuit · Devis sous 48&nbsp;h · Sans engagement
         </p>
-      </div>
-
-      <div class="bw-hero__preuve" v-reveal:scale="260">
-        <SignatureVisual />
       </div>
     </div>
   </section>
@@ -131,8 +133,23 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   position: relative;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 72px;
-  align-items: center;
+  column-gap: 72px;
+  row-gap: 28px;
+  grid-template-areas:
+    'titre  preuve'
+    'contenu contenu';
+}
+
+/* La carte ne se centre que sur le bloc titre (surtitre + h1), pas sur
+   tout le texte : sous-titre, boutons et signature suivent en dessous,
+   dans leur propre rangée de grille. */
+.bw-hero__titre-bloc {
+  grid-area: titre;
+  align-self: center;
+}
+
+.bw-hero__contenu {
+  grid-area: contenu;
 }
 
 /* ---------- Surtitre ---------- */
@@ -376,13 +393,19 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
 }
 
 .bw-hero__preuve {
+  grid-area: preuve;
+  align-self: center;
   position: relative;
 }
 
 @media (max-width: 1024px) {
   .bw-hero__inner {
     grid-template-columns: 1fr;
-    gap: 56px;
+    row-gap: 56px;
+    grid-template-areas:
+      'titre'
+      'preuve'
+      'contenu';
   }
 
   .bw-hero__preuve {
