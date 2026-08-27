@@ -132,7 +132,7 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 72px;
-  align-items: start;
+  align-items: center;
 }
 
 /* ---------- Surtitre ---------- */
