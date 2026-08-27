@@ -91,9 +91,10 @@ import { coordonnees, hebergeur } from '../composables/coordonnees.js'
     </ul>
     <p>
       Pour exercer ces droits, écrivez-nous à
-      <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a> ou par
-      courrier à {{ coordonnees.adresseLigne1 }}, {{ coordonnees.adresseLigne2 }},
-      en joignant une copie d'une pièce d'identité. Nous vous répondons dans un
+      <a :href="`mailto:${coordonnees.email}`">{{ coordonnees.email }}</a> ou
+      appelez-nous au
+      <span class="tel-entier">{{ coordonnees.telephoneAffiche }}</span>, en
+      joignant une copie d'une pièce d'identité. Nous vous répondons dans un
       délai maximum de 30 jours.
     </p>
     <p>
