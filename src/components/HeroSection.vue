@@ -218,19 +218,43 @@ const telephoneCaracteres = coordonnees.telephoneAffiche.split('')
   justify-content: center;
   padding: 15px 30px;
   border-radius: var(--bw-radius-pill);
-  background: var(--bw-text);
-  color: var(--bw-bg);
+  background: var(--bw-gradient);
+  background-size: 160% auto;
+  background-position: 0% 50%;
+  color: #050301;
   font-size: 0.92rem;
   font-weight: 700;
-  transition: transform var(--bw-duration-fast) var(--bw-ease),
-    box-shadow var(--bw-duration) var(--bw-ease), background-color var(--bw-duration-fast) var(--bw-ease);
+  transition: background-position var(--bw-duration) var(--bw-ease),
+    filter var(--bw-duration) var(--bw-ease), transform var(--bw-duration-fast) var(--bw-ease),
+    box-shadow var(--bw-duration) var(--bw-ease);
+  /* Même pulsation douce que l'ancien bouton d'en-tête : seule variation
+     de luminosité (filter), jamais de box-shadow à étalement. */
+  animation: bw-btn-primaire-pulsation 2.2s ease-in-out infinite;
+}
+
+@keyframes bw-btn-primaire-pulsation {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.22);
+  }
 }
 
 .bw-btn-primaire:hover {
-  color: var(--bw-bg);
-  background: #fff;
+  color: #050301;
+  background-position: 100% 50%;
   transform: translateY(-2px);
+  filter: brightness(1.1);
+  animation-play-state: paused;
   box-shadow: 0 16px 40px rgba(139, 92, 246, 0.28), 0 10px 24px rgba(255, 122, 69, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bw-btn-primaire {
+    animation: none;
+  }
 }
 
 .bw-btn-tel {

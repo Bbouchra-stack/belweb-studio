@@ -264,6 +264,7 @@ onBeforeUnmount(() => {
   color: var(--bw-text-muted);
   font-size: 0.89rem;
   font-weight: 500;
+  white-space: nowrap;
   transition: color var(--bw-duration-fast) var(--bw-ease),
     background-color var(--bw-duration-fast) var(--bw-ease);
 }
