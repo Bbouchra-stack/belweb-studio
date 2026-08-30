@@ -6,10 +6,11 @@ import vue from '@vitejs/plugin-vue'
 // propre URL (meilleur pour le référencement et obligatoire pour pouvoir
 // être liée depuis l'extérieur).
 export default defineConfig({
-  // En développement local, le site tourne à la racine ("/"). Une fois
-  // construit sur GitHub Actions, il est publié sous /belweb-studio/
-  // (adresse d'un site de projet GitHub Pages) : la base doit suivre.
-  base: process.env.GITHUB_ACTIONS ? '/belweb-studio/' : '/',
+  // Chemins relatifs : le site doit fonctionner à la fois sous
+  // bbouchra-stack.github.io/belweb-studio/ (sous-dossier) et sous le nom
+  // de domaine personnalisé (racine) — un chemin absolu comme
+  // "/belweb-studio/..." casserait le second cas (page blanche, JS introuvable).
+  base: './',
   plugins: [vue()],
   build: {
     rollupOptions: {
